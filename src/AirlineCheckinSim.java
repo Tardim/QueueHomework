@@ -19,7 +19,7 @@ public class AirlineCheckinSim {
      * Maximum number of frequent flyers to be served
      * before a regular passenger gets served.
      */
-    private int frequentFlyerMax = 2;
+    private int frequentFlyerMax = 0;
     /**
      * Maximum time to service a passenger.
      */
@@ -85,33 +85,41 @@ public class AirlineCheckinSim {
     }
     /** Method to show the statistics. */
     private void showStats() {
-
-        System.out.println("\nThe number of regular passengers served was " + regularPassengerQueue);
-
-            double averageWaitingTime = (double) regularPassengerQueue.getTotalWait() / (double) regularPassengerQueue.getNumServed();
-            System.out.println(" with an average waiting time of " + averageWaitingTime);
-
-
-        System.out.println("The number of frequent flyers served was " + frequentFlyerQueue.getNumServed());
-
-        double averageWaitingTimeFrequent = (double) frequentFlyerQueue.getTotalWait() / (double) frequentFlyerQueue.getNumServed();
-        System.out.println(" with an average waiting time of " + averageWaitingTimeFrequent);
-        System.out.println("Passengers in frequent flyer queue: " + frequentFlyerQueue.size());
-        System.out.println("Passengers in regular passenger queue: " + regularPassengerQueue.size());
+        System.out.println
+                ("\nThe number of regular passengers served was "
+                        + regularPassengerQueue.getNumServed());
+        double averageWaitingTime1 =
+                (double) regularPassengerQueue.getTotalWait()
+                        / (double) regularPassengerQueue.getNumServed();
+        System.out.println(" with an average waiting time of "
+                + averageWaitingTime1);
+        System.out.println("The number of frequent flyers served was "
+                + frequentFlyerQueue.getNumServed());
+        double averageWaitingTime2 =
+                (double) frequentFlyerQueue.getTotalWait()
+                        / (double) frequentFlyerQueue.getNumServed();
+        System.out.println(" with an average waiting time of "
+                + averageWaitingTime2);
+        System.out.println("Passengers in frequent flyer queue: "
+                + frequentFlyerQueue.size());
+        System.out.println("Passengers in regular passenger queue: "
+                + regularPassengerQueue.size());
     }
     public void enterData(){
         System.out.print("Expected number of frequent flyers per hour: ");
-         frequentFlyerMax = scan.nextInt() / 60;
+         frequentFlyerQueue.arrivalRate =  (scan.nextInt()/60) ;
         System.out.print("Expected number of regular passenger arrivals per hour: ");
-        frequentFlyersSinceRP = scan.nextInt()/60;
+        regularPassengerQueue.arrivalRate  = (scan.nextInt()/60);
         System.out.print("Maximum service time in minutes: ");
         maxProcessingTime = scan.nextInt();
         System.out.print("Total simulation time in minutes: ");
         totalTime = scan.nextInt();
         System.out.print("Display minute-by-minute trace of simulation (Y or N): ");
         scan.next("Y");
-        if(showAll == true){
+        if(showAll){
             scan.next("Y");
+
+
         }
         else
             showAll = false;

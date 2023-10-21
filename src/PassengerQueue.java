@@ -3,6 +3,7 @@ import java.util.Queue;
 
 /** Class to simulate a queue of passengers. */
 public class PassengerQueue {
+
 // Data Fields
     /**
      * The queue of passengers.
@@ -23,7 +24,7 @@ public class PassengerQueue {
     /**
      * The average arrival rate.
      */
-    private double arrivalRate;
+    public double arrivalRate;
 // Constructor
 
     /**
@@ -77,18 +78,18 @@ public class PassengerQueue {
         return clock + nextPassenger.getProcessingTime();
     }
 
-    public double getTotalWait() {
+    public int getTotalWait() {
         return totalWait;
     }
 
-    public double getNumServed() {
+    public int getNumServed() {
         return numServed;
     }
-    public boolean isEmpty(){
-   return theQueue.isEmpty();
+    public boolean isEmpty() {
+       return theQueue.isEmpty();
     }
 
     public int size() {
-       return theQueue.size();
+        return theQueue.size();
     }
 }
