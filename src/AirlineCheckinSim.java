@@ -124,9 +124,13 @@ public class AirlineCheckinSim {
         else
             showAll = false;
     }
+    public void helloMike(){
+        System.out.println("Hello Mike this is Dominic Zelinsky, I added this method to your code!");
+    }
 
     public static void main(String[] args) {
         AirlineCheckinSim sim = new AirlineCheckinSim();
+        sim.helloMike();
         sim.enterData();
         sim.runSimulation();
         sim.showStats();
